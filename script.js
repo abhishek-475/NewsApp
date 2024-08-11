@@ -28,12 +28,16 @@ const fetchNews = async (page, q) => {
     str =
       str +
       ` <div class="card my-4 mx-2" style="width: 18rem">
-          <img src="${item.urlToImage}" class="card-img-top" alt="..." height="184" />
+          <img src="${
+            item.urlToImage
+          }" class="card-img-top" alt="..." height="184" />
           <div class="card-body">
-            <h5 class="card-title">${item.title.slice(0,30)}...</h5>
-            <p class="card-text">${item.description.slice(0,123)}...
+            <h5 class="card-title">${item.title.slice(0, 30)}...</h5>
+            <p class="card-text">${item.description.slice(0, 123)}...
             </p>
-            <a href="${item.url}" target="_blank"  class="btn btn-primary">Read article</a>
+            <a href="${
+              item.url
+            }" target="_blank"  class="btn btn-primary">Read article</a>
           </div>
         </div>`;
   }
