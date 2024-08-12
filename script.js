@@ -1,7 +1,8 @@
-//"dbbd02dc5e65426da090e6d89f5588e8"
+
 
 let currentQuery = "sports";
 let currentPage = 1;
+let str = "";
 const fetchNews = async (page, q) => {
   console.log(`Fetching news for${q}, Page number ${page}... `);
 
@@ -21,16 +22,35 @@ const fetchNews = async (page, q) => {
 
   let a = await fetch(req);
   let response = await a.json();
+  // console.log(response);
 
-  let str = "";
-  resultCount.innerHTML = response.totalResults;
+  // response.articles.forEach(item => {
+  //   resultCount.innerHTML = response.totalResults;
+  //   str +=
+  //     ` <div class="card my-4 mx-2" style="width: 18rem">
+  //         <img src="${
+  //           item.urlToImage
+  //         }" class="card-img-top" alt="..." height="184" />
+  //         <div class="card-body">
+  //           <h5 class="card-title">${item.title.slice(0, 30)}...</h5>
+  //           <p class="card-text">${item.description.slice(0, 123)}...
+  //           </p>
+  //           <a href="${
+  //             item.url
+  //           }" target="_blank"  class="btn btn-primary">Read article</a>
+  //         </div>
+  //       </div>`;
+
+  // });
+ 
   for (let item of response.articles) {
-    str =
-      str +
+    resultCount.innerHTML = response.totalResults;
+    str +=
       ` <div class="card my-4 mx-2" style="width: 18rem">
           <img src="${
             item.urlToImage
-          }" class="card-img-top" alt="..." height="184" />
+          }" class="card-img-t
+          op" alt="..." height="184" />
           <div class="card-body">
             <h5 class="card-title">${item.title.slice(0, 30)}...</h5>
             <p class="card-text">${item.description.slice(0, 123)}...
